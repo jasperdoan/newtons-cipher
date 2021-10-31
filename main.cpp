@@ -4,16 +4,15 @@
 #include <algorithm>
 using namespace std;
 
-const int textlength = 24;
+const int textlength = 50;
 string str;            
 char arraytext[textlength];                
 char arraychar[textlength];                 
 
 void calibrate()
 {
-    remove(str.begin(), str.end(), ' ');
-    transform(str.begin(), str.end(), str.begin(),[](unsigned char c)
-        { return tolower(c); });
+    transform( str.begin(), str.end(), str.begin(),[](unsigned char c)
+        {return tolower(c);});
 
     sort(str.begin(), str.end());
     strcpy(arraytext, str.c_str());
@@ -25,7 +24,7 @@ void calibrate()
 void quantityCount()
 {
     int count = 0;
-    for (int i = 0; i < sizeof(arraychar) - 1; i++)
+    for (int i = 0; i < str.length(); i++)
     {
         for (int j = 0; j < sizeof(arraytext) - 1; j++)
             if (arraychar[i] == arraytext[j])
