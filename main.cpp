@@ -1,39 +1,25 @@
 #include <iostream>
-#include <iomanip>
 #include <cstring>
+#include <string>
+#include <algorithm>
 using namespace std;
 
-const int textlength = 7;                   // For now keep this at 7, I don't want to complicate things, just test with 6 letters words
-char arraytext[textlength];                 // INPUT from user
-char arraychar[textlength];                 // Non-repeated characters string
-char datatable[sizeof(arraychar) + 1][3];   // Data table to sort [in-progress :( ]
+const int textlength = 7;
+string str;            
+char arraytext[textlength];                
+char arraychar[textlength];                 
 
-// Calibrate the whole sequence 
-void start()
+void calibrate()
 {
-    cout << "Enter text: ";
-    cin.getline(arraytext, textlength);
+    transform(str.begin(), str.end(), str.begin(),[](unsigned char c)
+        { return std::tolower(c); });
+
+    sort(str.begin(), str.end());
+
+    strcpy(arraytext, str.c_str());
     strcpy(arraychar, arraytext);
 }
 
-// Function to count the argument letter in the text/string
-int countNumbers(char letter, char temp[textlength])
-{
-    int count = 0;
-
-    for (int i = 0; i < textlength; i++)
-    {
-        if (letter == temp[i])
-            count++;
-    }
-    return count;
-
-    /********************* [TO BE ADDED] **********************
-    /Function returns if there are 2 more letters in a string
-    **********************************************************/
-}
-
-// Separating/narrow down repeated letters
 void seperateChar()
 {
     int i,j, index = 0;
@@ -50,44 +36,49 @@ void seperateChar()
     }
 }
 
-// Setting up a data table so I can sort data and stuff to output into Newton's cipher
-void settingUpDataTable()
+void quantityCount()
 {
-    int num;
+    int savepoint = 0; 
+    int count = 0;
 
-    seperateChar();
-    strcpy(datatable[0], arraychar);
-
-    for(int i = 0; i < sizeof(arraychar); i++)
+    for (int i = 0; i < sizeof(arraychar) - 1; i++)
     {
-        num = countNumbers(arraychar[i], arraytext);
-
-        datatable[i][1] = (char)num;
-    }
-}
-
-// output table function
-void table()
-{
-    for (int i = 0; i < 2; i++)
-    {
-        for (int j = 0; j < sizeof(arraychar); j++)
+        for (int j = savepoint; j < sizeof(arraytext) - 1; j++)
         {
-            cout << datatable[i][j];
+            if (arraychar[i] == arraytext[j])
+            {
+                count++;
+                if (arraychar[i] != arraytext[j+1])
+                {
+                    cout << count << arraychar[i];
+                    savepoint = savepoint + count;
+                    j = savepoint;
+                    count = 0;
+                    break;
+                }
+                // else
+                // {
+                //     for (int k = 0; k < count; k++)
+                //         cout << arraychar[i];
+
+                //     savepoint = savepoint + count;
+                //     j = savepoint;
+                //     count = 0;
+                //     break;
+                // }
+            }
         }
-        cout << endl;
     }
 }
 
 int main () 
 {
-    start();
-    settingUpDataTable();
+    cout << "Enter text: ";
+    getline(cin, str);
 
-    cout << arraytext << endl << arraychar << endl; // test for text and short text to only non-repeating letters (Banana --> Ban)
-    cout << countNumbers('a', arraytext) << endl;   // test for counts how many 'a' in "Banana" - Will change this soon for the whole string instead of just 'a'
-    table();                                        // outputs the table that DOESN't FUCKING WORK AWIGDIADWIADBIA
-
-
+    calibrate();
+    seperateChar();
+    quantityCount();
+    
     return 0;
 }
