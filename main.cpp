@@ -13,7 +13,7 @@ char arraychar[textlength];     // String with only unique characters (Banana --
 void calibrate()
 {
     // Lower cases everything 
-    transform( str.begin(), str.end(), str.begin(),[](unsigned char c)
+    transform(str.begin(), str.end(), str.begin(),[](unsigned char c)
         {return tolower(c);});
 
     // Sort string in alphabetical order 
