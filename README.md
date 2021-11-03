@@ -3,7 +3,7 @@
 
 ## Description
 
-On October 24th 1676, Newton wrote a letter in latin explaining fluxion, but the letter was actually concealed in code because he was suspicious of Leibniz. The program will take in a string, transverses and encipher it with Newton's cipher. For example: `I am Batman` will translate to `3abimmn`.
+On October 24th 1676, Newton wrote a letter to Leibniz in Latin explaining fluxion, but the letter was actually concealed in code because he was suspicious of Leibniz. The program will prompt and take in a string, transverses and encipher it with Newton's cipher. For example: `I am Batman` will translate to `3abimmn`.
 
 ### How does the cipher work?
 
