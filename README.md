@@ -8,6 +8,7 @@ The program will prompt and take in a string, transverses and encipher it with N
 
 ### How does the cipher work?
 
+Encryption program. Parse a string using Newton's encryption, based on a letter he wrote to Leibniz explaining fluxion, to encrypt it.
 * The string is re-arranged into alphabetical order
 * Counts the frequency of a letter and represent it with a number, if the frequency is less than 3 then it is printed twice 
 * (For e.g. `I am Batman`, there are 3 `a`'s so `3a`, 2 `m`'s so `mm`.
