@@ -1,17 +1,20 @@
+#include "header.h"
 #include "filehandler.cpp"
-                    
+#include "encrytion.cpp"
+
 int main () 
 {
     const string file = "sentence.txt";
     const int AR_SIZE = GetWordCount(file);
 
-    string fileStringAR[AR_SIZE];
-
-    GetFileInput(file, fileStringAR, AR_SIZE);
+    string textArray[AR_SIZE];
     
-    for(int i = 0; i < AR_SIZE; i++)
+    GetFileInput(file, textArray, AR_SIZE);
+    
+    for(int wordIndex = 0; wordIndex < AR_SIZE; wordIndex++)
     {
-        cout << "-" + fileStringAR[i] + "-" << endl;
+        TransformAndSort(textArray[wordIndex]);
+        cout << "-" + textArray[wordIndex] + "-" << endl;
     }
 
     return 0;

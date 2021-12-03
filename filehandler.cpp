@@ -1,18 +1,20 @@
-#include <iostream>
-#include <cstring>
-#include <string>
-#include <fstream>
-#include <algorithm>
+#include "header.h"
 
-using namespace std;
-
+/**
+ * @brief Get the Word Count
+ * 
+ * @param file 
+ * @return int 
+ */
 int GetWordCount(string file)
 {
-    ifstream fin(file);
+    ifstream fin;
     int word = 1;
     char ch;
+
+    fin.open(file);
     
-    fin.seekg(0,ios::beg); //bring position of file pointer to begining of file
+    fin.seekg(0,ios::beg); //move file pointer to begining of file
  
     while(fin)
     {
@@ -27,12 +29,17 @@ int GetWordCount(string file)
     return word;
 }
 
+/**
+ * @brief Get the File Input and place them into an array of str
+ * 
+ * @param file 
+ * @param AR 
+ * @param AR_SIZE 
+ */
 void GetFileInput(string file, string AR[], const int AR_SIZE)
 {
-    int index;
     ifstream fin;
-
-    index = 0;
+    int index = 0;
 
 	fin.open(file);
 
@@ -44,46 +51,3 @@ void GetFileInput(string file, string AR[], const int AR_SIZE)
 
     fin.close();
 }
-/*
-void Transform(string &str)
-{
-    // Lower cases everything 
-    for_each(str.begin(), str.end(),[](char & c) 
-    {
-        c = ::tolower(c);
-    });
-
-    // Sort string in alphabetical order 
-    sort(str.begin(), str.end());
-    char * cstr = new char [str.length()+1];
-    strcpy(cstr, str.c_str());
-
-    // Remove repeated char
-    str.erase(unique(str.begin(), str.end()), str.end());
-    char * ucstr = new char [str.length()+1];
-    strcpy(ucstr, str.c_str());
-}
-
-// Output text //
-void quantityCount()
-{
-    int count = 0;                                      
-    for (int i = 0; i < str.length(); i++)
-    {
-        for (int j = 0; j < sizeof(cstr) - 1; j++)
-        {
-            if (cstr[i] == cstr[j])
-                count++;     
-        }                           
-        if (count > 2)
-        {
-            cout << count << cstr[i];  
-        }            
-        else
-        {
-            for (int k = 0; k < count; k++)
-                cout << cstr[i];     
-        }
-        count = 0;   
-    }                
-}*/
