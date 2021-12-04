@@ -19,7 +19,7 @@ int GetWordCount(string file)
     while(fin)
     {
         fin.get(ch);
-        if(ch ==' ' || ch =='\n')
+        if(ch == ' ' || ch == '\n')
         {
             word++;
         }

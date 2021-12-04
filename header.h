@@ -15,5 +15,6 @@ void GetFileInput(string file, string AR[], const int AR_SIZE);
 
 // encrytion.cpp
 void TransformAndSort(string &str);
+string ParseUniqueChar(string str);
 
 #endif

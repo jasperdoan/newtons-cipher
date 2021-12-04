@@ -16,5 +16,6 @@ Encryption program. Parse a string using Newton's encryption, based on a letter 
 ### Task lists
 
 - [x] Optimize :tada:
-- [ ] https://github.com/wluxie/Newtons-Cipher/issues/1
+- [x] Take in a whole file of text (paragraphs & sentences) instead of inputing from console
+- [x] https://github.com/wluxie/Newtons-Cipher/issues/1
 - [ ] Decipher the string after encrypting it

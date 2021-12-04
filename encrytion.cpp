@@ -11,8 +11,37 @@ void TransformAndSort(string &str)
     sort(str.begin(), str.end());
 }
 
+string ParseUniqueChar(string str)
+{
+    str.erase(unique(str.begin(), str.end()), str.end());
+
+    return str;
+}
 
 /*
+char * ParseUniqueChar(string str)
+{
+    char * cstr = new char [str.length()+1];
+    char * ucstr = new char [str.length()+1];
+
+    // Lower cases everything 
+    for_each(str.begin(), str.end(),[](char & c) {
+        c = ::tolower(c);
+    });
+
+    // Sort string in alphabetical order 
+    sort(str.begin(), str.end());
+    strcpy(cstr, str.c_str());
+
+    // Remove repeated char
+    str.erase(unique(str.begin(), str.end()), str.end());
+    strcpy(ucstr, str.c_str());
+
+    delete[] cstr;
+    delete[] ucstr;
+}
+
+
 void quantityCount()
 {
     int count = 0;                                      
@@ -34,25 +63,5 @@ void quantityCount()
         }
         count = 0;   
     }                
-}
-
-/*
-void Unique(string str)
-{
-    char * cstr = new char [str.length()+1];
-    char * ucstr = new char [str.length()+1];
-
-    // Lower cases everything 
-    for_each(str.begin(), str.end(),[](char & c) {
-        c = ::tolower(c);
-    });
-
-    // Sort string in alphabetical order 
-    sort(str.begin(), str.end());
-    strcpy(cstr, str.c_str());
-
-    // Remove repeated char
-    str.erase(unique(str.begin(), str.end()), str.end());
-    strcpy(ucstr, str.c_str());
 }
 */
