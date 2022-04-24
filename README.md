@@ -1,5 +1,5 @@
 # Newtons-Cipher
-![](image.png)
+![](img/image.png)
 
 ## Description
 

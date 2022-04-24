@@ -1,6 +1,4 @@
 #include "header.h"
-#include "filehandler.cpp"
-#include "encrytion.cpp"
 
 int main () 
 {
